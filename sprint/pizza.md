@@ -18,3 +18,4 @@ WHERE fir_rank = 1
 * COUNT(quantity)가 아니라 SUM(quantity)
 > COUNT하면 quantity 값의 갯수를 셈
 * WHERE 절에 집계 함수 못 들어감 무지성으로 넣지말자
+* 근데 왜 RANK를 MONTH로 집계하는거지? DATE중에 최고를 MONTH 기준으로 출력하는거 아닌가
