@@ -13,3 +13,8 @@ SELECT max_month, max_date, quan_count
 FROM monthlymax
 WHERE fir_rank = 1
 ```
+
+* CTE 사용 (서브쿼리 활용 방식도 있지만 코드 길어짐)
+* COUNT(quantity)가 아니라 SUM(quantity)
+> COUNT하면 quantity 값의 갯수를 셈
+* WHERE 절에 집계 함수 못 들어감 무지성으로 넣지말자
