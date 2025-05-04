@@ -27,9 +27,12 @@ ORDER BY ID
 SELECT COUNT(ID) AS COUNT
 FROM ECOLI_DATA
 WHERE (GENOTYPE & 2) = 0
-      AND ((GENOTYPE & 1 > 0) OR (GENOTYPE & 3 > 0))
+      AND ((GENOTYPE & 1 > 0) OR (GENOTYPE & 4 > 0))
 ;
 ```
+* 왜 GENOTYPE이 4인가?
+  * 2진수로 봤을때 0001(1형질→10진수로 1), 0010(2형질→10진수로 2), 0011(3형질→10진수로 4)
+  * 2진주 정수를 직접 써도 되지만 2진수를 그대로 알아듣지 못하는 경우가 많기 때문에, 10진수 정수로 쓰는 것이 직관적이고 실용적
 > IDEA
 * 비트 연산자를 처음 들어봄 + 처음 써봄... 이해한 내용을 정리해보자
 ### 비트 연산자
