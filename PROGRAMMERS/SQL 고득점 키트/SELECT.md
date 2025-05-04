@@ -42,4 +42,29 @@ WHERE (GENOTYPE & 2) = 0
 * ^ : 대응되는 비트가 다르면 0, 같으면 1 (001 ^ 011 = 101 반환)
 * left shift, right shift 연산 추가 (말들이 좀 다름)
 
-
+# LV2) 부모의 형질을 모두 가지는 대장균 찾기
+> MY ANSWER
+```ruby
+SELECT CHILD.ID
+       , CHILD.GENOTYPE AS GENOTYPE
+       , PARENT.GENOTYPE AS PARENT_GENOTYPE
+FROM ECOLI_DATA CHILD
+JOIN ECOLI_DATA PARENT ON CHILD.PARENT_ID = PARENT.ID
+WHERE (CHILD.GENOTYPE & PARENT.GENOTYPE) = PARENT.GENOTYPE
+ORDER BY CHILD.ID
+;
+```
+> ERROR
+```ruby
+(CHILD.GENOTYPE & PARENT.GENOTYPE) = 1
+OR (CHILD.GENOTYPE ^ PARENT.GENOTYPE) != 1
+```
+* 위의 조건을 WHERE에 넣으면 안되는지? → 잘못됨
+  * 첫 줄은 딱 한 비트만 겹쳐야 한다는 의미로 해석됨
+  * 두 번째 줄은 한 비트라도 불일치하면 제외됨 
+> IDEA
+```
+(CHILD.GENOTYPE & PARENT.GENOTYPE) = PARENT.GENOTYPE
+```
+* 조건이 이렇게 되어야 하는 이유?
+  * 부모 형질을 모두 포함한다면 연산 결과가 부모 형질과 같아져야 함 : 비트는 숫자 뿐만 아니라 위치에 따라 형질이 달라지기 때문에! (EX. 자식 1101 & 부모 0111 = 0101 이므로 자식이 부모의 2형질을 포함하지 않아 불일치 → 이런 식으로 해석)
