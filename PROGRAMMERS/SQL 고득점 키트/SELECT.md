@@ -68,3 +68,22 @@ OR (CHILD.GENOTYPE ^ PARENT.GENOTYPE) != 1
 ```
 * 조건이 이렇게 되어야 하는 이유?
   * 부모 형질을 모두 포함한다면 연산 결과가 부모 형질과 같아져야 함 : 비트는 숫자 뿐만 아니라 위치에 따라 형질이 달라지기 때문에! (EX. 자식 1101 & 부모 0111 = 0101 이므로 자식이 부모의 2형질을 포함하지 않아 불일치 → 이런 식으로 해석)
+
+# LV2) 업그레이드 된 아이템 구하기
+> MY ANSWER
+```ruby
+SELECT I.ITEM_ID
+       , I.ITEM_NAME
+       , I.RARITY
+FROM ITEM_INFO I
+WHERE I.ITEM_ID IN (
+    SELECT IT.ITEM_ID
+    FROM ITEM_TREE IT
+    JOIN ITEM_INFO II ON IT.PARENT_ITEM_ID = II.ITEM_ID
+    WHERE II.RARITY = 'RARE'
+)
+ORDER BY I.ITEM_ID DESC
+;
+```
+> IDEA
+* LEFT JOIN으로 ITEM_INFO - ITEM_TREE - ITEM_INFO를 계속 이으려고 했었는데 이렇게 하면 업그레이드가 더이상 되지 않는 아이템도 출력되기는 하지만, 모두 NULL처리가 되고 ITEM_ID를 기준으로 정렬하면 NULL이 가장 작은 수로 분류되어 밑으로 감
