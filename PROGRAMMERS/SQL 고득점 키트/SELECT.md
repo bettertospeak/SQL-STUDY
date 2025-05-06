@@ -87,3 +87,18 @@ ORDER BY I.ITEM_ID DESC
 ```
 > IDEA
 * LEFT JOIN으로 ITEM_INFO - ITEM_TREE - ITEM_INFO를 계속 이으려고 했었는데 이렇게 하면 업그레이드가 더이상 되지 않는 아이템도 출력되기는 하지만, 모두 NULL처리가 되고 ITEM_ID를 기준으로 정렬하면 NULL이 가장 작은 수로 분류되어 밑으로 감
+
+# LV2) 조건에 맞는 개발자 찾기
+> MY ANSWER
+```ruby
+SELECT d.ID, d.EMAIL, d.FIRST_NAME, d.LAST_NAME
+FROM DEVELOPERS d
+WHERE d.SKILL_CODE & (
+  SELECT SUM(s.CODE)
+  FROM SKILLCODES s
+  WHERE s.NAME IN ('Python', 'C#')
+)
+ORDER BY d.ID;
+```
+> IDEA
+* 제발 테이블 이름 좀 제대로 읽기... 쿼리 잘 써놓고 테이블명 틀려서 통과가 안됨 ㅠ
