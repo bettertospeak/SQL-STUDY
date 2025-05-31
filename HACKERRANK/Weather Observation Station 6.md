@@ -1,4 +1,5 @@
 # Basic Select : Weather Observation Station 6
+https://www.hackerrank.com/challenges/weather-observation-station-6/problem?isFullScreen=true
 > 내가 써서 통과된 코드
 ```ruby
 SELECT DISTINCT CITY
