@@ -25,3 +25,17 @@ WHERE CITY LIKE '%a'
 ;
 ```
 > 두 코드 다 간결하게 쓰는 방법 없을까?
+> 6번 정규표현식
+```ruby
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY REGEXP '^[aeiouAEIOU]'
+;
+```
+> 7번 정규표현식
+```ruby
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY REGEXP '[aeiou]$'
+;
+```
