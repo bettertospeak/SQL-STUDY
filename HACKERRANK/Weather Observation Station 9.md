@@ -16,3 +16,6 @@ WHERE LOWER(CITY) REGEXP '^[^aeiou]'
 ;
 ```
 * CITY를 소문자로 바꿔서 정규표현식에 대입
+
+## 성능은 LOWER을 쓰지 않는 쪽이 나음
+변환 때문에 CPU 연산 추가됨
