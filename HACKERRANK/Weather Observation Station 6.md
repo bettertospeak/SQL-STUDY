@@ -24,7 +24,7 @@ WHERE CITY LIKE '%a'
       OR CITY LIKE '%u'
 ;
 ```
-> 두 코드 다 간결하게 쓰는 방법 없을까?
+> 두 코드 다 간결하게 쓰는 방법 없을까?\
 > 6번 정규표현식
 ```ruby
 SELECT DISTINCT CITY
