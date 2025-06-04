@@ -1,7 +1,9 @@
 # 1. 고객별 총 구매금액 구하기
 * 고객별로 결제 완료된(PAID) 주문의 총 금액을 구하라.
 * 결과는 고객 이름과 총금액을 출력하되, 총금액이 높은 순으로 정렬하라.
+  
 <img width="390" alt="Image" src="https://github.com/user-attachments/assets/106113d7-66b5-4c02-8bfc-d268357e923d" />
+
 > 최초 답
 ```ruby
 SELECT C.NAME, SUM(O.AMOUNT)
@@ -28,7 +30,9 @@ ORDER BY TOTAL_AMOUNT DESC
 # 2. 월별 신규 가입자 수 구하기
 * 각 월(예: 2023-01, 2023-02, ...)별 신규 가입자 수를 구하라.
 * 결과는 월별 오름차순으로 정렬하라.
+  
 <img width="412" alt="Image" src="https://github.com/user-attachments/assets/81dcd6b1-ef8d-4067-8b84-f8855ceaae9e" />
+
 > 최초 답
 ```ruby
 SELECT MONTH(SIGNUP_DATE) AS MONTHS, COUNT(*)
