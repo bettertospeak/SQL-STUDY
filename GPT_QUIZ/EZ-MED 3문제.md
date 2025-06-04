@@ -3,7 +3,7 @@
 * 결과는 고객 이름과 총금액을 출력하되, 총금액이 높은 순으로 정렬하라.
 
 <img width="390" alt="Image" src="https://github.com/user-attachments/assets/106113d7-66b5-4c02-8bfc-d268357e923d" />
-\
+---
 > 최초 답
 ```ruby
 SELECT C.NAME, SUM(O.AMOUNT)
