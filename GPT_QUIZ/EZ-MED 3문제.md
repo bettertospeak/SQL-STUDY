@@ -24,6 +24,7 @@ GROUP BY C.NAME
 ORDER BY TOTAL_AMOUNT DESC
 ;
 ```
+\
 ---
 # 2. 월별 신규 가입자 수 구하기
 * 각 월(예: 2023-01, 2023-02, ...)별 신규 가입자 수를 구하라.
