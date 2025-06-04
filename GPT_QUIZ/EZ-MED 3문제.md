@@ -52,3 +52,14 @@ GROUP BY SIGNUP_DATE
 ORDER BY SIGNUP_DATE
 ;
 ```
+
+# 3. 가장 최근 주문 찾기
+* 각 고객이 주문한 것 중 가장 최근 주문 1건씩만 출력하라.
+* 출력 컬럼은 customer_id, order_date, amount
+
+<img width="382" alt="Image" src="https://github.com/user-attachments/assets/42e1ddbf-3e61-466c-be00-8bc374e2a4ad" />
+
+> 최초 답
+```ruby
+
+```
