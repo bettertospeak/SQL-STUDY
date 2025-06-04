@@ -43,7 +43,6 @@ ORDER BY MONTHS
 ```
 > 수정할 부분
 1. MONTH로만 집계하면 2023-01과 2024-01이 같은 월로 집계되므로, YYYY-mm 형식으로 추출해줘야 함
-2. 집계함수를 쓸때는 sort_values 조건을 GROUP BY절에 써줘야함
 > 수정 답
 ```ruby
 SELECT DATE_FORMAT(SIGNUP_DATE, '%Y-%m') AS SIGNUP_DATE
