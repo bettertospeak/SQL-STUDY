@@ -59,7 +59,15 @@ ORDER BY SIGNUP_DATE
 
 <img width="382" alt="Image" src="https://github.com/user-attachments/assets/42e1ddbf-3e61-466c-be00-8bc374e2a4ad" />
 
-> 최초 답
+> 답
 ```ruby
-
+WITH RANKED_ORDER AS (
+  SELECT *
+         , ROW_NUMBER() OVER (PARTITION BY CUSTOMER_ID ORDER BY ORDER_DATE) AS RN
+  FROM ORDERS
+)
+SELECT CUSTOMER_ID, ORDER_DATE, AMOUNT
+FROM RANKED_ORDER
+WHERE RN = 1
+;
 ```
